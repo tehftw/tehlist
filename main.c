@@ -1,44 +1,35 @@
 
-#include "tehlist_tehstruct.h"
+#include "tehlistdemo_structura.h"
 
+
+#include <math.h> // For some vanity maths functions because I like maths and numbers
 
 int main()
 {
-    size_t capacity_of_structuralist = 10;
+    size_t capacity_of_structuralist = 3;
 
     //
     tehlist structura_list;
     structura_list = tehlist_structura_createList(capacity_of_structuralist);
-    printf("Sizeof structura = %d", sizeof(structura));
-
-
-
-
-    structura temp_struct;
-    structura* struc_ptr = structura_list.pointer_to_zero;
-    struc_ptr ++;
-    temp_struct.label[0] = 'T';
-    temp_struct.label[1] = 'E';
-    temp_struct.label[2] = 'H';
-    temp_struct.label[3] = 'F';
-    temp_struct.label[4] = 'T';
-    temp_struct.label[5] = 'W';
-    temp_struct.label[6] = 'V';
-    temp_struct.label[7] = '@';
-    temp_struct.val_integer = 74;
-    temp_struct.val_double = 2.71;
-
-
-    tehlist_generic_setValueAtIndex(&structura_list, -1, &temp_struct);
-    tehlist_generic_setValueAtIndex(&structura_list, 5, &temp_struct);
-    tehlist_generic_setValueAtIndex(&structura_list, 20, &temp_struct);
-    tehlist_generic_setValueAtIndex(&structura_list, 25, &temp_struct);
-    tehlist_generic_setValueAtIndex(&structura_list, 12, &temp_struct);
-
-    printf("\n\n");
     tehlist_displayEverything(&structura_list);
 
+    printf("\nSizeof structura = %d", sizeof(structura));
 
+    structura temp_struct;
+    printf("\nSizeof temp_struct = %d", sizeof(temp_struct));
+
+
+    temp_struct.label[5] = 'A';
+    temp_struct.val_integer = 1;
+    temp_struct.val_double  = sqrt(2) ;
+
+    tehlist_generic_appendValue(&structura_list, &temp_struct);
+
+
+
+
+    printf("\n\n FINISHED DOING STUFF ON THE LIST \n\n");
+    tehlist_displayEverything(&structura_list);
 
 
 
